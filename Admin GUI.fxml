@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="475.0" style="-fx-background-color: #3f71d9; -fx-border-color: #09100c; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment2.FXMLDocumentController">
+    <children>
+      <AnchorPane layoutX="252.0" layoutY="182.0" prefHeight="101.0" prefWidth="206.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <TextField fx:id="userID" layoutX="-25.0" layoutY="13.0" prefWidth="175.0" promptText="User ID" style="-fx-background-color: #767676;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="groupID" prefHeight="50.0" prefWidth="175.0" promptText="Group ID" style="-fx-background-color: #767676;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="234.0" layoutY="295.0" prefHeight="62.0" prefWidth="206.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Button fx:id="addUserButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addUser" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #2e2e2e;" text="Add User" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="addGroupButton" layoutX="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addGroup" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #2e2e2e;" text="Add Group" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="viewUser" layoutX="247.0" layoutY="112.0" mnemonicParsing="false" onAction="#openUserView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2e2e2e;" text="Open User View" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <TreeView fx:id="rootHierarchy" editable="true" layoutX="35.0" layoutY="112.0" onContextMenuRequested="#selectItem" onMouseClicked="#selectItem" prefHeight="328.0" prefWidth="190.0" style="-fx-border-color: #2e2e2e;" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="107.0" />
+      <Text layoutX="85.0" layoutY="69.0" stroke="WHITE" strokeType="OUTSIDE" text="Admin GUI" textAlignment="CENTER" wrappingWidth="337.6000122070313" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="-0.0625">
+         <font>
+            <Font name="System Bold Italic" size="64.0" />
+         </font>
+      </Text>
+        <Label fx:id="testlabel" layoutX="261.0" layoutY="367.0" minHeight="16" minWidth="69" prefHeight="62.0" prefWidth="170.0" style="-fx-background-color: #f6f6f6;" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="43.60000000000002">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <AnchorPane layoutX="30.0" layoutY="368.0" prefHeight="82.0" prefWidth="450.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+         <children>
+            <Button fx:id="countUsers" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#countUsers" prefHeight="70.0" prefWidth="80.0" style="-fx-background-color: #2e2e2e;" text="# of Users" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="countGroups" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#countGroups" prefHeight="70.0" prefWidth="80.0" style="-fx-background-color: #2e2e2e;" text="# of Groups" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="110.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="countPosts" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#countPosts" prefHeight="70.0" prefWidth="80.0" style="-fx-background-color: #2e2e2e;" text="# of Posts" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="110.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="percentPositive" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#percentPositive" prefHeight="70.0" prefWidth="80.0" style="-fx-background-color: #2e2e2e;" text="\% of Positive Posts" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
