@@ -38,13 +38,13 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="viewUser" layoutX="247.0" layoutY="112.0" mnemonicParsing="false" onAction="#openUserView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2e2e2e;" text="Open User View" textFill="WHITE">
+      <Button fx:id="viewUser" layoutX="247.0" layoutY="112.0" mnemonicParsing="false" onAction="#openUserView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2e2e2e;" text="Open User View" textFill="WHITE" AnchorPane.rightAnchor="25.0">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
       <TreeView fx:id="rootHierarchy" editable="true" layoutX="35.0" layoutY="112.0" onContextMenuRequested="#selectItem" onMouseClicked="#selectItem" prefHeight="328.0" prefWidth="190.0" style="-fx-border-color: #2e2e2e;" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="107.0" />
-      <Text layoutX="85.0" layoutY="69.0" stroke="WHITE" strokeType="OUTSIDE" text="Admin GUI" textAlignment="CENTER" wrappingWidth="337.6000122070313" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="-0.0625">
+      <Text layoutX="30.0" layoutY="83.0" stroke="WHITE" strokeType="OUTSIDE" text="Admin View" textAlignment="CENTER" wrappingWidth="415.0000000000001" AnchorPane.topAnchor="13.9375">
          <font>
             <Font name="System Bold Italic" size="64.0" />
          </font>

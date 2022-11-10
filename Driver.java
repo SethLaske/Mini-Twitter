@@ -16,13 +16,14 @@ import javafx.stage.Stage;
  * @author small
  */
 public class Driver extends Application {
-    
+
+    //Opens the Admin View
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Admin GUI.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -32,9 +33,8 @@ public class Driver extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Root root = Root.getInstance();
-        
+
         launch(args);
     }
-    
+
 }
