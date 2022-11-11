@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="475.0" style="-fx-background-color: #3f71d9; -fx-border-color: #09100c; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="475.0" style="-fx-background-color: #3f71d9; -fx-border-color: #09100c; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment2.AdminViewControl">
     <children>
       <AnchorPane layoutX="252.0" layoutY="182.0" prefHeight="101.0" prefWidth="206.0" AnchorPane.rightAnchor="20.0">
          <children>
@@ -38,7 +38,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="viewUser" layoutX="247.0" layoutY="112.0" mnemonicParsing="false" onAction="#openUserView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2e2e2e;" text="Open User View" textFill="WHITE" AnchorPane.rightAnchor="25.0">
+      <Button fx:id="viewUser" layoutX="247.0" layoutY="112.0" mnemonicParsing="false" onAction="#openUserView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2e2e2e;" text="Open User View" textFill="WHITE" AnchorPane.rightAnchor="24.0">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
