@@ -1,6 +1,7 @@
 package assignment2;
 //import java.util.Observable;
 //import java.util.Observer;
+import java.lang.*;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,8 @@ public class User extends Followed implements Entity, Follower {
     private String newPost;
     private int numberOfPosts = 0;
     private int numberOfPositivePosts = 0;
+    private long Timestamp;
+    private long Updated;
 
     //Getters and setters
     public void setID(String ID) {
@@ -86,7 +89,27 @@ public class User extends Followed implements Entity, Follower {
         //add it to the top feed
         feed.add(0, newPost);
         //notify 
+        createUpdatedTimestamp();
         notifyFollowers();
+    }
+
+    @Override
+    public void createTimestamp() {
+        Timestamp = System.currentTimeMillis();
+        System.out.print("Hello World");
+    }
+
+    @Override
+    public long getTimestamp() {
+        return Timestamp;
+    }
+    
+    public void createUpdatedTimestamp() {
+        Updated = System.currentTimeMillis();
+    }
+
+    public long getUpdatedTimestamp() {
+        return Updated;
     }
 
 }

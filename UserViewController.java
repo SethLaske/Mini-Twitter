@@ -45,12 +45,20 @@ public class UserViewController extends Followed implements Initializable, Follo
     private TextArea feed;
     @FXML
     private Button refresh;
-
+    @FXML
+    private Text created;
+    @FXML
+    private Text updated;
+            
     //Passes the user who's UI is being opened, displaying their following and feed
     @FXML
     public void setUser(User user) {
         this.currentUser = user;
         header.setText(currentUser.getID());
+        //currentUser.createTimestamp();
+        created.setText("Created: " + String.valueOf(currentUser.getTimestamp()));
+        currentUser.createUpdatedTimestamp();
+        updated.setText("Updated: " + String.valueOf(currentUser.getUpdatedTimestamp()));
 
         //Initializing the people being followed
         for (int i = 0; i < currentUser.getFollowing().size(); i++) {
@@ -90,6 +98,8 @@ public class UserViewController extends Followed implements Initializable, Follo
                     followed.addFollower(this);
 
                     feed.setText(currentUser.getNewPost() + "\n" + feed.getText());
+                    currentUser.createUpdatedTimestamp();
+                    updated.setText("Updated: " + String.valueOf(currentUser.getUpdatedTimestamp()));
                     notifyFollowers();  //The followers will be notified so they can be alerted to the new following
                 }
             }
@@ -108,6 +118,8 @@ public class UserViewController extends Followed implements Initializable, Follo
         } else {    //Tells the user to enter a message to be posted
             testlabel.setText("Please type your message");
         }
+        //currentUser.createUpdatedTimestamp();
+        updated.setText("Updated: " + String.valueOf(currentUser.getUpdatedTimestamp()));
     }
 
     //Whenever they receive a message the observer pattern will allow the feed to refresh
@@ -123,6 +135,8 @@ public class UserViewController extends Followed implements Initializable, Follo
         for (int i = 0; i < currentUser.getFeed().size(); i++) {
             feed.setText(feed.getText() + currentUser.getFeed().get(i) + "\n");
         }
+        currentUser.createUpdatedTimestamp();
+        updated.setText("Updated: " + String.valueOf(currentUser.getUpdatedTimestamp()));
     }
 
     @Override

@@ -6,6 +6,9 @@ public interface Entity {
     void setID(String ID);
 
     String getID();
+    
+    void createTimestamp();
+    long getTimestamp();
 
     //Setup for Visitor pattern
     public int accept(EntityVisitor visitor);

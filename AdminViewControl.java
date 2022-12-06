@@ -34,6 +34,7 @@ public class AdminViewControl implements Initializable {
     private Group selectedGroup;
     private User selectedUser;
     private Root root = Root.getInstance();
+    private boolean validNames = false;
 
     @FXML
     private Label testlabel;
@@ -50,6 +51,8 @@ public class AdminViewControl implements Initializable {
 
     //checking stats items
     @FXML
+    private Button validateUsers;
+    @FXML
     private Button countUsers;
     @FXML
     private Button countGroups;
@@ -57,6 +60,8 @@ public class AdminViewControl implements Initializable {
     private Button countPosts;
     @FXML
     private Button percentPositive;
+    @FXML
+    private Button lastUpdatedUser;
 
     //tree view and user view startup
     @FXML
@@ -103,11 +108,13 @@ public class AdminViewControl implements Initializable {
             testlabel.setText("Please select a group");
         } else {
             testlabel.setText("User: " + userID.getText() + " has been added");
-
+            validNames = true;
             //Creates a user, adds them to the composition of the parent group, sets their ID, then adds it to the tree view
             User newUser = new User();
             selectedGroup.addEntity(newUser);
             newUser.setID(userID.getText());
+            newUser.createTimestamp();
+            newUser.createUpdatedTimestamp();
             TreeItem<Entity> addedUser = new TreeItem<>(newUser);
             selectedEntity.getChildren().add(addedUser);
 
@@ -127,10 +134,12 @@ public class AdminViewControl implements Initializable {
             testlabel.setText("Please select a group");
         } else {
             testlabel.setText("Group: " + groupID.getText() + " has been added");
+            validNames = true;
             //Creates a group, adds them to the composition of the parent group, sets their ID, then adds it to the tree view
             Group newGroup = new Group();
             selectedGroup.addEntity(newGroup);
             newGroup.setID(groupID.getText());
+            newGroup.createTimestamp();
             TreeItem<Entity> addedGroup = new TreeItem<>(newGroup);
             selectedEntity.getChildren().add(addedGroup);
 
@@ -138,6 +147,14 @@ public class AdminViewControl implements Initializable {
         }
     }
 
+    @FXML
+    private void validateUsers(ActionEvent event) {
+        if(validNames == true){
+            testlabel.setText("All names are valid");
+        } else {
+            testlabel.setText("Need valid names");
+        }
+    }
     //Uses the visitor pattern to count number of users
     @FXML
     private void countUsers(ActionEvent event) {
@@ -176,6 +193,13 @@ public class AdminViewControl implements Initializable {
 
     }
 
+    @FXML
+    private void FindLastUpdatedUser(ActionEvent event) {
+        root = root.getInstance();
+        User lastUpdated = root.lastUpdatedUser();
+        testlabel.setText("User: " + lastUpdated + " was most recently updated");
+    }
+    
     //Selects an Entity on the treeview and determines if it is a User or Group
     @FXML
     private void selectItem() {

@@ -1,0 +1,44 @@
+package assignment2;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		
+		//run GUI lol
+		
+		
+		///Plan
+		//1. create the basic classes and implement the patterns
+		//2. Create the admin panel and create buttons
+		//3. buttons to show stats (exclude the positive messages for now)
+		//4. tree view (I think this will be hard)
+		
+		//5. Enter a user panel
+		//6. Implement the following through the UI
+		//7. Tweet to your own page
+		//8. Tweeting updates everyone you follow
+		
+		//singleton - admin?
+		
+		//observer - each user can follow the others
+		
+		//visitor - positive messages?
+		
+		//composite - groups and users, groups can contain groups and users
+		
+		//easy to keep count for new users/groups using the buttons
+		//probably create an interface to create panels/buttons
+		//use Swing menu? and add action listeners perhaps
+		
+		//user
+			//leaf node of tree
+			//follow
+			//post
+			
+			
+		//group
+			//just contains list of groups/users
+
+	}
+
+}

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Group implements Entity {
 
     private String ID;
+    private long Timestamp;
     private ArrayList<Entity> groupUsers = new ArrayList<Entity>();
 
     //Basic getters and setters
@@ -20,6 +21,16 @@ public class Group implements Entity {
         return ("<" + ID + ">");
     }
 
+    @Override
+    public void createTimestamp() {
+        Timestamp = System.currentTimeMillis();
+    }
+
+    @Override
+    public long getTimestamp() {
+        return Timestamp;
+    }
+    
     //Adds either a group or user for the composite pattern
     public void addEntity(Entity entity) {
 
@@ -57,6 +68,36 @@ public class Group implements Entity {
 
         }
         return null;
+    }
+    
+    public User lastUpdatedUser(){
+        long mostRecentTime = 0;
+        User mostRecentUser = null;
+        
+        if(groupUsers == null){
+            return null;
+        }
+        
+        for (Entity entities : groupUsers) {
+
+            if (entities instanceof User) { //Checks all of the users 
+                if (((User) entities).getUpdatedTimestamp() > mostRecentTime) {
+                    mostRecentUser = (User)entities;
+                    mostRecentTime = mostRecentUser.getUpdatedTimestamp();
+                }
+
+            } else {
+                User groupsRecent = ((Group) entities).lastUpdatedUser();
+                if(groupsRecent != null && groupsRecent.getUpdatedTimestamp() > mostRecentTime){
+                    mostRecentUser = groupsRecent;
+                    mostRecentTime = mostRecentUser.getUpdatedTimestamp();
+                }
+                
+                
+            }
+
+        }
+        return mostRecentUser;
     }
 
 }
